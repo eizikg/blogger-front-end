@@ -1,0 +1,128 @@
+.row {
+  /* background-color: #e9e8e2; */
+  /* border-left-style: solid;
+  border-right-style: solid; */
+  padding: 25px;
+  width: 700px;
+  height: 200px;
+  border-radius: 5px;
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+  /* display: inline-block; */
+}
+
+.loading{
+  position: fixed;
+  height: 100px;
+  top: 0;
+  left: 50%;
+  right: 0;
+}
+
+.paragraph {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  position: relative;
+  top: 50px;
+  font-family: 'Lato', sans-serif;
+  font-size: large;
+}
+
+.title {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  position: relative;
+  top: 35px;
+  font-family: 'Lato', sans-serif;
+  font-size: xx-large;
+}
+
+.add_button {
+  margin: auto;
+  display: inline-block;
+  position: relative;
+  width: 256px;
+  height: 15px;
+  bottom: 50%;
+  left: 15%;
+}
+
+.form-textarea {
+  /* display: relative; */
+  border-style: solid;
+  border-width: 1px;
+  top: 50px;
+  font-size: large;
+  padding: 25px;
+  width: 700px;
+  height: 200px;
+
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+}
+
+.form-div {
+  /* display: none; */
+  /* border-style: solid;
+  border-width: 1px; */
+  /* padding: 25px; */
+  width: 700px;
+  height: 200px;/
+  border-radius: 5px;
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+}
+
+.form-image-div {
+  /* display: none; */
+  /* border-style: solid;
+  border-width: 1px; */
+  /* padding: 25px; */
+  width: 700px;
+  height: 200px;/
+  border-radius: 5px;
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+}
+
+.image-textarea {
+  /* display: relative; */
+  border-style: solid;
+  border-width: 1px;
+  top: 50px;
+  font-size: large;
+  padding: 25px;
+  width: 700px;
+  height: 100px;
+
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+}
+
+.button_menu{
+   /* display: inline-block */
+   /* display: none; */
+   position: relative;
+   width: 100px;
+   height: 50px;
+   left: 15%;
+  /* flex-direction: row; */
+  /* width: 25px;
+  height: 25px; */
+}
+
+#buttons_div{
+  display: block;
+}
+
+#elements{
+  position: relative;
+  top: 100px;
+}

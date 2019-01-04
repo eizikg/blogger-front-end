@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "image": "https://cdn-images-1.medium.com/max/800/1*xUikLspHgvfzLqxzsc6deA.jpeg",
+      "id": 1
+    },
+    {
+      "text": " \n\n",
+      "id": 2
+    },
+    {
+      "text": "Many programming languages provide an easy way to generate a random number. this is useful for games of chance like dice and shuffling playing card. however, true random doesn’t really exist in the physical world, what we perceive as random, only appears to be random. \n\n",
+      "id": 3
+    },
+    {
+      "text": "Many programming languages provide an easy way to generate a random number. this is useful for games of chance like dice and shuffling playing card. however, true random doesn’t really exist in the physical world, what we perceive as random, only appears to be random. rolling dice isn’t random! ",
+      "id": 4
+    }
+  ]
+}
