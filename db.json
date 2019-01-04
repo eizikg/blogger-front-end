@@ -30,7 +30,7 @@
       "id": 7
     },
     {
-      "text": "In recent years given the rise to quantum computers, cryptologists have looked to quantum physics, or the rules that govern subatomic particles , to create encryption keys. Radioactive materials spontaneously throw off particles in a probabilistic manner, but the exact time when each particle will be discarded is inherently random. So given a small window of time, the number of radioactive particles discarded can act as the seed for the random number generator. a company called PDH International, actually has a server that generates encryption keys with true randomness, based on quantum physics.  \n\n",
+      "text": "In recent years given the rise to quantum computers, cryptologists have looked to quantum physics, or the rules that govern subatomic particles , to create encryption keys. Radioactive materials spontaneously throw off particles in a probabilistic manner, but the exact time when each particle will be discarded is inherently random. So given a small window of time, the number of radioactive particles discarded can act as the seed for the random number generator. a company called PDH International, actually has a server that generates encryption keys with true randomness, based on quantum physics.  yes \n\n",
       "id": 8
     }
   ]

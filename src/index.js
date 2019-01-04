@@ -214,7 +214,7 @@ let updater = debounce(function(e) {
   setTimeout(function(){ document.body.removeChild(alert[0]); updateElement(e)}, 900);
   setTimeout(function(){updateElement(e)}, 2000);
   updateElement(e)
-}, 800, true);
+}, 800, false);
 
 
 function debounce(func, wait, immediate) {
