@@ -115,7 +115,7 @@ function createNewImageElement(e){
       alert("cannot be empty");
       return;
     }
-  let formElement = document.querySelector('.form-div')
+  let formElement = document.querySelector('.form-image-div')
   // document.querySelector('.add_button').style.display = 'block'
   let input = e.target
   console.log(e.target.value)
