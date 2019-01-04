@@ -1,20 +1,37 @@
 {
+  "title": [],
   "articles": [
     {
-      "image": "https://cdn-images-1.medium.com/max/800/1*xUikLspHgvfzLqxzsc6deA.jpeg",
+      "text": "Many programming languages provide an easy way to generate a random number. this is useful for games of chance like dice and shuffling playing card. however, true random doesn’t really exist in the physical world, what we perceive as random, only appears to be random. rolling dice isn’t random! instead the dice are governed by specific, mathematical laws, and if we know the exact contours of the desk and the force applied to the dice, we could calculate which sides would come to rest upward. \n\n",
       "id": 1
     },
     {
-      "text": " \n\n",
+      "image": "https://cdn-images-1.medium.com/max/800/1*xUikLspHgvfzLqxzsc6deA.jpeg",
       "id": 2
     },
     {
-      "text": "Many programming languages provide an easy way to generate a random number. this is useful for games of chance like dice and shuffling playing card. however, true random doesn’t really exist in the physical world, what we perceive as random, only appears to be random. \n\n",
+      "text": "If so, how do our computers generate random numbers? we’ll, it doesn’t! computers generate numbers that appear to be random, but are not random at all. a simple way a program could generate a random number is by starting with a number based on the current time, squaring that number, then taking, say, the middle four, and repeating the process every time it wants to generate a random number. \n\n",
       "id": 3
     },
     {
-      "text": "Many programming languages provide an easy way to generate a random number. this is useful for games of chance like dice and shuffling playing card. however, true random doesn’t really exist in the physical world, what we perceive as random, only appears to be random. rolling dice isn’t random! ",
+      "text": "however, if i were to know the base number i could actually predict the “supposedly” random number. this type of randomness is what mathematicians call pseudo random. \n\n",
       "id": 4
+    },
+    {
+      "text": "An important use of random numbers is to generate encryption key. our communication on the web should not be readable to anyone out there, so we encrypt it. a random encryption key needs to be generated and our sensitive information is encrypted using that key, that way, the only one that can read it, is the one to whom i intended to send it. \n\n",
+      "id": 5
+    },
+    {
+      "text": "Since the random generator used by our program can easily be predicted, it is not sufficient enough to generate encryption key, and therefore is not the one responsible for the encryption. instead, its either the OS that handles the encryption, or, as the case with chrome and Firefox, they have their own server on the web that generates the encryption for them. \n\n",
+      "id": 6
+    },
+    {
+      "text": "Besides for encrypting data, secure servers also provide you with their certificate. A digital certificate is basically a unique piece of code that says that the Web server is trusted by an independent source known as a certificate authority. The certificate authority acts as a middleman that both computers trust. It confirms that each computer is in fact who it says it is, only then does it provide the encryption keys of each computer to the other. typically a website that handles sensitive information such as a bank, will have a secure connection. you’ll know that your connection is secure, when you see https used instead of just http, and you should also see a small padlock in the status bar. \n\n",
+      "id": 7
+    },
+    {
+      "text": "In recent years given the rise to quantum computers, cryptologists have looked to quantum physics, or the rules that govern subatomic particles , to create encryption keys. Radioactive materials spontaneously throw off particles in a probabilistic manner, but the exact time when each particle will be discarded is inherently random. So given a small window of time, the number of radioactive particles discarded can act as the seed for the random number generator. a company called PDH International, actually has a server that generates encryption keys with true randomness, based on quantum physics.  \n\n",
+      "id": 8
     }
   ]
 }

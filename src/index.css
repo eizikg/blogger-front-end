@@ -4,7 +4,7 @@
   border-right-style: solid; */
   padding: 25px;
   width: 700px;
-  height: 200px;
+  /* height: 200px; */
   border-radius: 5px;
   margin: auto;
   font-family: 'Lato', sans-serif;
@@ -27,7 +27,7 @@
   position: relative;
   top: 50px;
   font-family: 'Lato', sans-serif;
-  font-size: large;
+  /* font-size: large; */
 }
 
 .title {
@@ -62,7 +62,7 @@
 
   margin: auto;
   font-family: 'Lato', sans-serif;
-  font-size: x-large;
+  /* font-size: x-large; */
 }
 
 .form-div {
@@ -83,34 +83,38 @@
   /* border-style: solid;
   border-width: 1px; */
   /* padding: 25px; */
-  width: 700px;
-  height: 200px;/
+  left: 0px;
+  bottom: 30px;
+  width: 200px;
+  height: 0px;/
   border-radius: 5px;
-  margin: auto;
+  /* margin: auto; */
   font-family: 'Lato', sans-serif;
-  font-size: x-large;
+  font-size: small;
 }
 
 .image-textarea {
-  /* display: relative; */
+  /* left: 150px; */
+  display: inline-block;
   border-style: solid;
   border-width: 1px;
   top: 50px;
-  font-size: large;
+  font-size: small;
   padding: 25px;
-  width: 700px;
-  height: 100px;
+  width: 200px;
+  height: 0px;
+  border-radius: 5px;
 
-  margin: auto;
+  /* margin: auto; */
   font-family: 'Lato', sans-serif;
-  font-size: x-large;
+  /* font-size: x-large; */
 }
 
 .button_menu{
    /* display: inline-block */
    /* display: none; */
    position: relative;
-   width: 100px;
+   width: 15px;
    height: 50px;
    left: 15%;
   /* flex-direction: row; */
@@ -126,3 +130,35 @@
   position: relative;
   top: 100px;
 }
+
+.title{
+
+  border-style: solid;
+  border-width: 1px;
+  width: 700px;
+  height: 100px;
+  margin: auto;
+  font-size: x-large;
+  font-family: 'Lato', sans-serif;
+  border-radius: 5px;
+}
+
+.title-textarea {
+  /* display: relative; */
+  border-style: solid;
+  border-width: 1px;
+  top: 50px;
+  font-size: large;
+  padding: 25px;
+  width: 700px;
+  height: 100px;
+ border-radius: 5px;
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+  /* font-size: x-large; */
+}
+/*
+textarea::placeholder {
+  /* color: blue; */
+  /* font-size: 1.5em;
+/* } */

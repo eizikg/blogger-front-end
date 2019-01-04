@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
   listElements()
   let add_button = document.querySelector('.add_button')
   add_button.addEventListener('click', buttonMenu)
+  let title = document.querySelector('.title')
 })
 
 
@@ -37,7 +38,17 @@ function createElement(text, id, type){
   div.dataset.id = id
   div.dataset.type = type
   div.innerHTML += `<div class="row" contenteditable="true" ><p>${text}</p></div></br>`
-  div.addEventListener('keypress', updater)
+  div.addEventListener('keydown', (e)=> {
+  var key = e.which || e.keyCode;
+  // console.log(e.target.innerText)
+  if (key != 8){
+    updater(e)
+  }
+  else if (e.target.innerText === ""){
+    // console.log('delete')
+    deleteElement(e)
+  }
+})
   elements.prepend(div)
 }
 else if (type === "image"){
@@ -46,9 +57,16 @@ else if (type === "image"){
   div = document.createElement('div')
   div.className = "row"
   div.dataset.id = id
+  div.contenteditable="true"
   div.dataset.type = type
-  div.innerHTML += `<div class="row" contenteditable="true"><img src=${text}></div></br>`
-  div.addEventListener('keypress', updater)
+  div.innerHTML += `<div contenteditable="true" class="row" ><img src=${text}></div></br>`
+  div.addEventListener('keydown', (e)=> {
+  var key = e.which || e.keyCode;
+  console.log(e.target.innerText)
+  if (key = 8){
+    deleteElement(e)
+  }
+})
   elements.prepend(div)
 }
 }
@@ -74,10 +92,10 @@ function newElementForm(event){
 
 function newimageForm(event){
   let button_div = document.querySelector('.button_menu')
-    button_div.style.display = "none"
+    // button_div.style.display = "none"
   console.log('hi')
   let imageDiv = document.querySelector('.form-image-div')
-  imageDiv.style.display = "block"
+  imageDiv.style.display = "inline-block"
   imageDiv.addEventListener('keypress', createNewImageElement)
 }
 
@@ -140,7 +158,7 @@ function createNewImageElement(e){
 
 
 function updateElement(e){
-  console.log(e.target.parentNode.dataset.type)
+  // console.log(e.target.parentNode.dataset.type)
   console.log('updating')
   let input = e.target
   fetch(`http://localhost:3000/articles/${e.target.parentNode.dataset.id}`, {
@@ -174,6 +192,13 @@ function buttonMenu(e){
    button_div.style.display = "none"
  }
  }
+}
+
+function deleteElement(e){
+  console.log('delet image')
+  console.log(event.target.parentElement.dataset.id)
+  fetch(`http://localhost:3000/articles/${event.target.parentElement.dataset.id}`, {
+          method: "DELETE" }).then(event.target.parentElement.remove())
 }
 
 
