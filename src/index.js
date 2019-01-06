@@ -20,7 +20,7 @@ function listElements(){
     data.forEach((element) =>{
       let type = Object.keys(element)[0]
       createElement(element[type], element.id, type)
-      console.log(element[type])
+      // console.log(element[type])
       // div.addEventListener('keypress', updater)
       // elements.appendChild(div)
 
@@ -30,12 +30,13 @@ function listElements(){
 
 
 
-function createElement(text, id, type){
+function createElement(text, id, type, isnew=false){
   if (type === "text"){
   let elements = document.querySelector('#elements')
   div = document.createElement('div')
   div.className = "row"
   div.dataset.id = id
+  div.id = id
   div.dataset.type = type
   div.innerHTML += `<div class="row" contenteditable="true" ><p>${text}</p></div></br>`
   div.addEventListener('keydown', (e)=> {
@@ -49,25 +50,41 @@ function createElement(text, id, type){
     deleteElement(e)
   }
 })
-  elements.prepend(div)
+  elements.append(div)
+  if (isnew === true){
+    // console.log(isnew)
+    var elmnt = document.getElementById(id);
+    var div = elmnt.querySelector('div')
+  elmnt.scrollIntoView();
+  // console.log(elemt.style.borderStyle)
+  div.style.borderStyle = "solid"
+  setTimeout(function(){div.style.borderStyle = "none"}, 1500)
+  }
+//   var elmnt = document.getElementById(id);
+// elmnt.scrollIntoView();
 }
 else if (type === "image"){
-  console.log(text)
+  // console.log(text)
   let elements = document.querySelector('#elements')
   div = document.createElement('div')
   div.className = "row"
   div.dataset.id = id
   div.contenteditable="true"
   div.dataset.type = type
+  div.id= id
   div.innerHTML += `<div contenteditable="true" class="row" ><img src=${text}></div></br>`
   div.addEventListener('keydown', (e)=> {
   var key = e.which || e.keyCode;
-  console.log(e.target.innerText)
+  // console.log(e.target.innerText)
   if (key = 8){
     deleteElement(e)
   }
 })
-  elements.prepend(div)
+// if (isnew === true){
+// //   var elmnt = document.getElementById(id);
+// // elmnt.scrollIntoView();
+// }
+  elements.append(div)
 }
 }
 
@@ -77,9 +94,9 @@ else if (type === "image"){
 function newElementForm(event){
   let button_div = document.querySelector('.button_menu')
     button_div.style.display = "none"
-  console.log('hi')
-  let formDiv = document.querySelector('.form-div')
-  formDiv.style.display = "block"
+  // console.log('hi')
+  // let formDiv = document.querySelector('.form-div')
+  // formDiv.style.display = "block"
   // div = document.createElement('div')
   // div.className = "row"
   // div.rows = "7"
@@ -87,13 +104,27 @@ function newElementForm(event){
   // formDiv.append(div)
   // console.log(div)
   //let formElement = document.querySelector('#form')
-  formDiv.addEventListener('keypress', createNewElement)
+  fetch('http://localhost:3000/articles', {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      text: ""
+    })
+  }).then(resp => resp.json())
+  .then(data => {
+    // debugger
+   createElement(data.text, data.id, "text", true)
+  // e.target.value=""
+})
+  // formDiv.addEventListener('keypress', createNewElement)
 }
 
 function newimageForm(event){
   let button_div = document.querySelector('.button_menu')
     // button_div.style.display = "none"
-  console.log('hi')
+  // console.log('hi')
   let imageDiv = document.querySelector('.form-image-div')
   imageDiv.style.display = "inline-block"
   imageDiv.addEventListener('keypress', createNewImageElement)
@@ -136,7 +167,7 @@ function createNewImageElement(e){
   let formElement = document.querySelector('.form-image-div')
   // document.querySelector('.add_button').style.display = 'block'
   let input = e.target
-  console.log(e.target.value)
+  // console.log(e.target.value)
   if (!!formElement){formElement.style.display = "none"}
   fetch('http://localhost:3000/articles', {
     method: "POST",
@@ -148,7 +179,7 @@ function createNewImageElement(e){
     })
   }).then(resp => resp.json())
   .then(data => {
-    console.log(data)
+    // console.log(data)
    createElement(data.image, data.id, "image")
   e.target.value=""
 })
@@ -195,10 +226,11 @@ function buttonMenu(e){
 }
 
 function deleteElement(e){
-  console.log('delet image')
+  // console.log('delet image')
   console.log(event.target.parentElement.dataset.id)
   fetch(`http://localhost:3000/articles/${event.target.parentElement.dataset.id}`, {
           method: "DELETE" }).then(event.target.parentElement.remove())
+          deleter()
 }
 
 
@@ -211,10 +243,19 @@ let updater = debounce(function(e) {
   div.style.cssText = 'position:fixed;width:70px;left:50%;background-color:grey;font-family: Lato, sans-serif;'
   document.body.prepend(div)
   alert = document.querySelectorAll('.segment')
-  setTimeout(function(){ document.body.removeChild(alert[0]); updateElement(e)}, 900);
-  setTimeout(function(){updateElement(e)}, 2000);
+  setTimeout(function(){ document.body.removeChild(alert[0])}, 900);
   updateElement(e)
 }, 800, false);
+
+function deleter(){
+  div = document.createElement('div')
+  div.innerHTML += '<p>deleted!</p>'
+  div.className= "ui segment"
+  div.style.cssText = 'position:fixed;width:70px;left:50%;background-color:grey;font-family: Lato, sans-serif;'
+  document.body.prepend(div)
+  alert = document.querySelectorAll('.segment')
+  setTimeout(function(){ document.body.removeChild(alert[0])}, 900);
+}
 
 
 function debounce(func, wait, immediate) {
