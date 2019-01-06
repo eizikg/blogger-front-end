@@ -19,7 +19,14 @@ function listElements(){
   .then(data => {
     data.forEach((element) =>{
       let type = Object.keys(element)[0]
+      if (element[type] === ""){
+        console.log('empty string')
+        fetch(`http://localhost:3000/articles/${element.id}`, {
+                method: "DELETE" })
+      }
+      else {
       createElement(element[type], element.id, type)
+    }
       // console.log(element[type])
       // div.addEventListener('keypress', updater)
       // elements.appendChild(div)
@@ -57,8 +64,10 @@ function createElement(text, id, type, isnew=false){
     var div = elmnt.querySelector('div')
   elmnt.scrollIntoView();
   // console.log(elemt.style.borderStyle)
-  div.style.borderStyle = "solid"
-  setTimeout(function(){div.style.borderStyle = "none"}, 1500)
+  // div.style.borderStyle = "solid"
+  div.focus()
+  // div.onclick="div.blur"
+  setTimeout(function(){div.blur()}, 1500)
   }
 //   var elmnt = document.getElementById(id);
 // elmnt.scrollIntoView();
@@ -85,6 +94,9 @@ else if (type === "image"){
 // // elmnt.scrollIntoView();
 // }
   elements.append(div)
+  var elmnt = document.getElementById(id);
+  var div = elmnt.querySelector('div')
+elmnt.scrollIntoView();
 }
 }
 
